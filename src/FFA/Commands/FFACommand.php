@@ -17,17 +17,19 @@ class FFACommand extends Command{
 
     public function execute(CommandSender $sender, string $commandLabel, array $args){
         if($sender instanceof Player){
-            $joinworld = Server::getInstance()->getWorldManager()->getWorld("FFA-WORLD");
-            $sender->teleport($joinworld);
-            $sender->getInventory()->addItem(VanillaItems::IRON_SWORD());
-            $sender->getInventory()->addItem(VanillaItems::FISHING_ROD());
-            $sender->getInventory()->addItem(VanillaItems::GOLDEN_APPLE());
-            $sender->getInventory()->addItem(VanillaItems::BOW());
-            $sender->getInventory()->addItem(VanillaItems::ARROW(64));
-            $sender->getArmorInventory()->setHelmet(VanillaItems::IRON_HELMET());
-            $sender->getArmorInventory()->setChestplate(VanillaItems::IRON_CHESTPLATE());
-            $sender->getArmorInventory()->setLeggings(VanillaItems::IRON_LEGGINGS());
-            $sender->getArmorInventory()->setBoots(VanillaItems::IRON_BOOTS());
+            if($sender->hasPermission("ffa.cmd")){
+                $joinworld = Server::getInstance()->getWorldManager()->getWorld("FFA-WORLD");
+                $sender->teleport($joinworld);
+                $sender->getInventory()->addItem(VanillaItems::IRON_SWORD());
+                $sender->getInventory()->addItem(VanillaItems::FISHING_ROD());
+                $sender->getInventory()->addItem(VanillaItems::GOLDEN_APPLE());
+                $sender->getInventory()->addItem(VanillaItems::BOW());
+                $sender->getInventory()->addItem(VanillaItems::ARROW(64));
+                $sender->getArmorInventory()->setHelmet(VanillaItems::IRON_HELMET());
+                $sender->getArmorInventory()->setChestplate(VanillaItems::IRON_CHESTPLATE());
+                $sender->getArmorInventory()->setLeggings(VanillaItems::IRON_LEGGINGS());
+                $sender->getArmorInventory()->setBoots(VanillaItems::IRON_BOOTS());
+            }
         }
         if(isset($args[0])){
             switch(strtolower($args[0])){
