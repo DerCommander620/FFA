@@ -18,4 +18,4 @@ class Main extends PluginBase{
             new FFACommand()
         ]);
     }
-}
+} 
