@@ -14,6 +14,8 @@ class Main extends PluginBase{
     }
 
     public function onEnable(): void{
-        self::getServer()->getCommandMap()->registerAll($this->getName(), [new FFACommand]);
+        self::getServer()->getCommandMap()->registerAll($this->getName(), $this[
+            new FFACommand()
+        ]);
     }
 }
