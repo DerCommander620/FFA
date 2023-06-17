@@ -2,6 +2,7 @@
 namespace FFA;
 
 use pocketmine\plugin\PluginBase;
+use FFA\Commands\FFACommand
 use pocketmine\utils\SingletonTrait;
 
 class Main extends PluginBase{
