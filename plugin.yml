@@ -2,4 +2,4 @@ name: FFA
 version: 1.0.0
 author: DerCommander610
 main: FFA\Main
-api: 5.0.0
+api: 5.1.2
