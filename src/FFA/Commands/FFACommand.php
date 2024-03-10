@@ -8,9 +8,10 @@ use pocketmine\command\CommandSender;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\item\VanillaItems;
 use pocketmine\player\Player;
+use pocketmine\event\Listener;
 use pocketmine\Server;
 
-class FFACommand extends Command{
+class FFACommand extends Command implements Listener{
 
     public function __construct(){
         parent::__construct("ffa", "Teleport you to ffa", "ffa", []);
