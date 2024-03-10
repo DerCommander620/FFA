@@ -13,3 +13,5 @@ You quit the FFA world then!
 - /ffa restore
 ```
 Restores your Inventory
+
+[Click here to return](https://github.com/DerCommander620/FFA/blob/main/README.md)
