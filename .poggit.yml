@@ -4,6 +4,6 @@ branches:
 - main
 projects:
   FFA:
-  icon: resources/FFA_Logo.png
+  icon: simple.png
     path: ""
 ...
