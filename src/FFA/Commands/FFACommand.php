@@ -20,7 +20,7 @@ class FFACommand extends Command{
         if($sender instanceof Player){
             if($sender->hasPermission("ffa.cmd")){
                 $sender->sendMessage("§aUse §e/ffa restore §ato restore your entire Inventory!");
-                $joinworld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation());
+                $joinworld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation();
                 $sender->teleport($joinworld);
                 $sender->getInventory()->setItem(0, VanillaItems::IRON_SWORD());
                 $sender->getInventory()->setItem(1, VanillaItems::FISHING_ROD());
