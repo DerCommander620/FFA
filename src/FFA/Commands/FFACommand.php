@@ -1,4 +1,4 @@
-<?php
+r<?php
 namespace FFA\Commands;
 
 use FFA\Main;
@@ -36,7 +36,7 @@ class FFACommand extends Command{
         if(isset($args[0])){
             switch(strtolower($args[0])){
                 case "leave":
-                    if(!$sender->getWorldByName() === Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation()){
+                    if(!$sender->getWorldByName() === Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation())){
                         $sender->sendMessage("§cYou aren`t in FFA!);
                     }else{
                         $leaveworld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation());
@@ -46,7 +46,7 @@ class FFACommand extends Command{
                     break;
                 case "restore":
                     $sender->getInventory()->setItem(0, VanillaItems::IRON_SWORD());
-                    $sender->sendMessage("§aYou finally restored your Inventory!")
+                    $sender->sendMessage("§aYou finally restored your Inventory!");
                 $sender->getInventory()->setItem(1, VanillaItems::FISHING_ROD());
                 $sender->getInventory()->setItem(2, VanillaItems::GOLDEN_APPLE()->setCount(8));
                 $sender->getInventory()->setItem(3, VanillaItems::BOW());
