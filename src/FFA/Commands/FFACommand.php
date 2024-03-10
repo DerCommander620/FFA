@@ -22,7 +22,7 @@ class FFACommand extends Command implements Listener{
     if($sender instanceof Player){
         if($sender->hasPermission("ffa.cmd")){
             $sender->sendMessage("§aUse §e/ffa restore §ato restore your entire Inventory!");
-            $joinWorld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation();
+            $joinWorld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Join.World"))->getSpawnLocation();
             $sender->teleport($joinWorld);
            
             $sender->getInventory()->clearAll();
