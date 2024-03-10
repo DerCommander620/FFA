@@ -4,7 +4,7 @@
 It is a Minecraft Pocketmine 5.0.0 FFA Plugin for PVP and Fun!
 
 ## Commands
-Commands: [Click Here]([https://github.com/DerCommander620/FFA/resources/Commands.md](https://github.com/DerCommander620/FFA/blob/main/resources/commands.md))
+Commands: [Click Here](https://github.com/DerCommander620/FFA/blob/main/resources/commands.md)
 
 ## Download
 For the Download you need to join my Discord Server where you can download my only functionally Plugins [Click Here](https://discord.gg/JdSPF74APe)
