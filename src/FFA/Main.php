@@ -5,6 +5,7 @@ namespace FFA;
 use pocketmine\plugin\PluginBase;
 use FFA\Commands\FFACommand;
 use pocketmine\utils\SingletonTrait;
+use pocketmine\Server;
 
 class Main extends PluginBase{
     use SingletonTrait;
@@ -15,7 +16,8 @@ class Main extends PluginBase{
     }
 
     public function onEnable(): void{
-        self::getServer()->getCommandMap()->registerAll($this->getName(), [
+        Server::getInstance()->getPluginManager()->registerEvents(new FFACommand);
+        Server::getInstance()->getCommandMap()->registerAll($this->getName(), [
             new FFACommand()
         ]);
     }
