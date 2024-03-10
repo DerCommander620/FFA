@@ -16,7 +16,7 @@ class Main extends PluginBase{
     }
 
     public function onEnable(): void{
-        Server::getInstance()->getPluginManager()->registerEvents(new FFACommand);
+        Server::getInstance()->getPluginManager()->registerEvents(new FFACommand, $this);
         Server::getInstance()->getCommandMap()->registerAll($this->getName(), [
             new FFACommand()
         ]);
