@@ -1,4 +1,5 @@
 <?php
+
 namespace FFA\Commands;
 
 use FFA\Main;
@@ -20,8 +21,9 @@ class FFACommand extends Command{
         if($sender instanceof Player){
             if($sender->hasPermission("ffa.cmd")){
                 $sender->sendMessage("§aUse §e/ffa restore §ato restore your entire Inventory!");
-                $joinworld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation();
-                $sender->teleport($joinworld);
+                $joinWorld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation();
+                $sender->teleport($joinWorld);
+                $sender->getInventory()->clearAll();
                 $sender->getInventory()->setItem(0, VanillaItems::IRON_SWORD());
                 $sender->getInventory()->setItem(1, VanillaItems::FISHING_ROD());
                 $sender->getInventory()->setItem(2, VanillaItems::GOLDEN_APPLE()->setCount(8));
@@ -33,30 +35,32 @@ class FFACommand extends Command{
                 $sender->getArmorInventory()->setBoots(VanillaItems::IRON_BOOTS());
             }
         }
+
         if(isset($args[0])){
             switch(strtolower($args[0])){
                 case "leave":
-                        $leaveworld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation();
-                        $sender->getInventory()->clearall();
-                        $sender->teleport($leaveworld);
+                    $leaveWorld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation();
+                    $sender->getInventory()->clearAll();
+                    $sender->teleport($leaveWorld);
                     break;
                 case "restore":
+                    $sender->getInventory()->clearAll();
                     $sender->getInventory()->setItem(0, VanillaItems::IRON_SWORD());
-                    $sender->sendMessage("§aYou finally restored your Inventory!");
-                $sender->getInventory()->setItem(1, VanillaItems::FISHING_ROD());
-                $sender->getInventory()->setItem(2, VanillaItems::GOLDEN_APPLE()->setCount(8));
-                $sender->getInventory()->setItem(3, VanillaItems::BOW());
-                $sender->getInventory()->setItem(4, VanillaItems::ARROW()->setCount(256));
-                $sender->getArmorInventory()->setHelmet(VanillaItems::IRON_HELMET());
-                $sender->getArmorInventory()->setChestplate(VanillaItems::IRON_CHESTPLATE());
-                $sender->getArmorInventory()->setLeggings(VanillaItems::IRON_LEGGINGS());
-                $sender->getArmorInventory()->setBoots(VanillaItems::IRON_BOOTS());
+                    $sender->getInventory()->setItem(1, VanillaItems::FISHING_ROD());
+                    $sender->getInventory()->setItem(2, VanillaItems::GOLDEN_APPLE()->setCount(8));
+                    $sender->getInventory()->setItem(3, VanillaItems::BOW());
+                    $sender->getInventory()->setItem(4, VanillaItems::ARROW()->setCount(256));
+                    $sender->getArmorInventory()->setHelmet(VanillaItems::IRON_HELMET());
+                    $sender->getArmorInventory()->setChestplate(VanillaItems::IRON_CHESTPLATE());
+                    $sender->getArmorInventory()->setLeggings(VanillaItems::IRON_LEGGINGS());
+                    $sender->getArmorInventory()->setBoots(VanillaItems::IRON_BOOTS());
+                    $sender->sendMessage("§aYou have successfully restored your Inventory!");
                     break;
             }
-        }    
+        }
     }   
 
     public function onDeath(PlayerDeathEvent $event){
-        $event->setDeathMessage($event->getPlayer()->getName() . " §7 was send to Heaven");
+        $event->setDeathMessage($event->getPlayer()->getName() . " §7 was sent to Heaven");
     }
 }
