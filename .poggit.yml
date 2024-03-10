@@ -4,6 +4,6 @@ branches:
 - main
 projects:
   FFA:
-  icon: simple.png
     path: ""
+    icon: icon.PNG
 ...
