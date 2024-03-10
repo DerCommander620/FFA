@@ -1,4 +1,4 @@
-r<?php
+<?php
 namespace FFA\Commands;
 
 use FFA\Main;
@@ -36,10 +36,10 @@ class FFACommand extends Command{
         if(isset($args[0])){
             switch(strtolower($args[0])){
                 case "leave":
-                    if(!$sender->getWorldByName() === Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation())){
-                        $sender->sendMessage("§cYou aren`t in FFA!);
+                    if(!$sender->getWorldByName() === Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))){
+                        $sender->sendMessage("§cYou aren`t in FFA!");
                     }else{
-                        $leaveworld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation());
+                        $leaveworld = Server::getInstance()->getWorldManager()->getWorldByName(Main::getInstance()->getConfig()->get("Leave.World"))->getSpawnLocation();
                         $sender->getInventory()->clearall();
                         $sender->teleport($leaveworld);
                     }
@@ -57,6 +57,7 @@ class FFACommand extends Command{
                 $sender->getArmorInventory()->setBoots(VanillaItems::IRON_BOOTS());
                     break;
             }
+        }    
     }   
 
     public function onDeath(PlayerDeathEvent $event){
